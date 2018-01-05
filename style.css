@@ -27,7 +27,7 @@ h1 span {
   font-family: 'Helvetica';
 }
 
-.easy, .hard, .reset, .message {
+button, .message {
   margin: 10px;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
