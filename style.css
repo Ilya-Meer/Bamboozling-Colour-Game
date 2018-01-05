@@ -59,7 +59,7 @@ button:hover {
   margin: 20px auto;
 }
 
-.row1, .row2 {
+.row1, .row2, .row3, .row4 {
   display: flex;
   width: 100%;
 }
