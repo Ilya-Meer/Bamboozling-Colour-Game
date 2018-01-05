@@ -1,0 +1,28 @@
+body {
+  background: #232323;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.row1, .row2 {
+  display: flex;
+  width: 100%;
+}
+
+
+.square {
+  width: 30%;
+  margin: 1.66%;
+  padding-bottom: 30%;
+  background: purple;
+}
