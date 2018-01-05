@@ -1,20 +1,26 @@
-
-let colours = generateColours(6);
+let numSquares = 6;
+let colours = generateColours(numSquares);
 let pickedColour = pickColour();
 const squares = document.querySelectorAll('.square');
 const message = document.querySelector('#message');
 const h1 = document.querySelector('h1');
 const resetButton = document.getElementById('reset');
+const easy = document.querySelector('.easy');
+const hard = document.querySelector('.hard');
+
+
+span();
 
 
 resetButton.addEventListener('click', function() {
-  colours = generateColours(6);
+  colours = generateColours(numSquares);
   pickedColour = pickColour();
-  document.querySelector('#val').innerHTML = pickedColour;
+  span();
   for (let i = 0; i < squares.length; i++) {
     // add initial colours
     squares[i].style.backgroundColor = colours[i];
   }
+  h1.style.backgroundColor = '#232323';
 })
 
 
@@ -27,7 +33,8 @@ for (let i = 0; i < squares.length; i++) {
     let clickedColour = this.style.backgroundColor;
     if(clickedColour === pickedColour) {
       colourChange(clickedColour);
-      message.textContent = "Correct!"
+      message.textContent = "Correct!";
+      resetButton.textContent = "Play Again?";
     } 
     else {
       this.style.backgroundColor = '#232323';
@@ -35,6 +42,38 @@ for (let i = 0; i < squares.length; i++) {
     }
   });
 }
+
+
+easy.addEventListener('click', function(){
+  this.classList.add('selected');
+  hard.classList.remove('selected');
+  numSquares = 3;
+  colours = generateColours(3);
+  pickedColour = pickColour();
+  span();
+  for (let i = 0; i < squares.length; i++) {
+    if (colours[i]) {
+      squares[i].style.backgroundColor = colours[i];
+    } else {
+      squares[i].style.display = 'none';
+    }
+    
+  }
+})
+
+hard.addEventListener('click', function(){
+  this.classList.add('selected');
+  easy.classList.remove('selected');
+  numSquares = 6;
+  colours = generateColours(6);
+  pickedColour = pickColour();
+  span();
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colours[i];
+    squares[i].style.display = 'block';
+  }
+})
+
 
 function colourChange(colour) {
   h1.style.backgroundColor = colour;
@@ -60,7 +99,7 @@ function rand() {
   return Math.floor(Math.random() * 256);
 }
 
-(function span() {
+function span() {
   // gives h1 span the value of the picked colour
   document.querySelector('#val').innerHTML = pickedColour;
-})();
+};

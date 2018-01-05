@@ -45,6 +45,15 @@ h1 {
   background: purple;
 }
 
+.selected {
+  background-color: #232323;
+}
+
+
+
+
+
+
 @media all and (min-width: 520px) {
   .deets {
     flex-direction: row;
