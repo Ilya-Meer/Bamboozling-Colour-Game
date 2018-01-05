@@ -7,6 +7,14 @@ h1 {
   color: white;
 }
 
+
+.deets {
+  color: white;
+  text-align: center;
+  font-family: 'Helvetica';
+}
+
+
 .container {
   display: flex;
   flex-direction: column;

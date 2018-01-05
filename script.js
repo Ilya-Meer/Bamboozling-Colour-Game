@@ -1,23 +1,16 @@
-// const rand = Math.floor(Math.random() * (255));
 
-// const colour = `rgb(${rand}, ${rand}, ${rand})`;
-
-const colours = [
-  'rgb(100, 200, 32)',
-  'rgb(29, 29, 29)',
-  'rgb(255, 255, 0)',
-  'rgb(234, 79, 28)',
-  'rgb(71, 23, 56)',
-  'rgb(194, 56, 91)'
-];
+const colours = generateColours(6);
 
 // const pickedColour = colour;
-const pickedColour = colours[3];
+const pickedColour = pickColour();
 
 // gives h1 span the value of the picked colour
 document.querySelector('#val').innerHTML = pickedColour;
 
 const squares = document.querySelectorAll('.square');
+
+const message = document.querySelector('#message');
+
 
 for (let i = 0; i < squares.length; i++) {
   // add initial colours
@@ -27,9 +20,34 @@ for (let i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', function(){
     let clickedColour = this.style.backgroundColor;
     if(clickedColour === pickedColour) {
-      console.log('You Messed Up!');
+      colourChange(clickedColour);
+      message.textContent = "Correct!"
     } else {
       this.style.backgroundColor = '#232323';
+      message.textContent = "Try Again!";
     }
   });
+}
+
+function colourChange(colour) {
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colour;
+  }
+}
+
+function pickColour() {
+  let random = Math.floor(Math.random() * colours.length);
+  return colours[random];
+}
+
+function generateColours(num) {
+  const arr = [];
+  for (let i = 0; i < num; i++) {
+    arr.push(`rgb(${rand()}, ${rand()}, ${rand()})`);
+  }
+  return arr
+}
+
+function rand() {
+  return Math.floor(Math.random() * (255) + 1);
 }
