@@ -1,15 +1,21 @@
 
-const colours = generateColours(6);
-
-// const pickedColour = colour;
-const pickedColour = pickColour();
-
-// gives h1 span the value of the picked colour
-document.querySelector('#val').innerHTML = pickedColour;
-
+let colours = generateColours(6);
+let pickedColour = pickColour();
 const squares = document.querySelectorAll('.square');
-
 const message = document.querySelector('#message');
+const h1 = document.querySelector('h1');
+const resetButton = document.getElementById('reset');
+
+
+resetButton.addEventListener('click', function() {
+  colours = generateColours(6);
+  pickedColour = pickColour();
+  document.querySelector('#val').innerHTML = pickedColour;
+  for (let i = 0; i < squares.length; i++) {
+    // add initial colours
+    squares[i].style.backgroundColor = colours[i];
+  }
+})
 
 
 for (let i = 0; i < squares.length; i++) {
@@ -22,7 +28,8 @@ for (let i = 0; i < squares.length; i++) {
     if(clickedColour === pickedColour) {
       colourChange(clickedColour);
       message.textContent = "Correct!"
-    } else {
+    } 
+    else {
       this.style.backgroundColor = '#232323';
       message.textContent = "Try Again!";
     }
@@ -30,6 +37,7 @@ for (let i = 0; i < squares.length; i++) {
 }
 
 function colourChange(colour) {
+  h1.style.backgroundColor = colour;
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colour;
   }
@@ -49,5 +57,10 @@ function generateColours(num) {
 }
 
 function rand() {
-  return Math.floor(Math.random() * (255) + 1);
+  return Math.floor(Math.random() * 256);
 }
+
+(function span() {
+  // gives h1 span the value of the picked colour
+  document.querySelector('#val').innerHTML = pickedColour;
+})();

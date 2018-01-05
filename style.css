@@ -9,11 +9,21 @@ h1 {
 
 
 .deets {
-  color: white;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 30px;
   font-family: 'Helvetica';
 }
 
+.reset {
+  border: none;
+  box-shadow: none;
+  color: red;
+  background-color: #191919;
+}
 
 .container {
   display: flex;
@@ -33,4 +43,10 @@ h1 {
   margin: 1.66%;
   padding-bottom: 30%;
   background: purple;
+}
+
+@media all and (min-width: 520px) {
+  .deets {
+    flex-direction: row;
+  }
 }
