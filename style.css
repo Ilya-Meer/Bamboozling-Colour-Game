@@ -3,33 +3,60 @@ body {
 }
 
 h1 {
+  padding: 10px;
+  font-size: 1rem;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
   text-align: center;
+  text-transform: uppercase;
   color: white;
+  background: steelblue;
 }
 
+h1 span {
+  display: block;
+  font-size: 200%;
+  padding: 5px;
+}
 
 .deets {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   background: white;
-  height: 30px;
   font-family: 'Helvetica';
 }
 
-.reset {
+.easy, .hard, .reset, .message {
+  margin: 10px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.message {
+  width: 20%;
+  font-weight: 700;
+}
+
+button {
   border: none;
   box-shadow: none;
-  color: red;
-  background-color: #191919;
+  color: steelblue;
+  background: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+button:hover {
+  color: white;
+  background-color: steelblue;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .row1, .row2 {
@@ -42,11 +69,13 @@ h1 {
   width: 30%;
   margin: 1.66%;
   padding-bottom: 30%;
-  background: purple;
+  border-radius: 20px;
+  transition: background 0.5s;
 }
 
 .selected {
-  background-color: #232323;
+  color: white;
+  background-color: steelblue;
 }
 
 
@@ -54,8 +83,8 @@ h1 {
 
 
 
-@media all and (min-width: 520px) {
-  .deets {
-    flex-direction: row;
+@media all and (min-width: 600px) {
+  h1 {
+    font-size: 2rem;
   }
 }
